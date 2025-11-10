@@ -1,25 +1,25 @@
 import React from 'react'
-import {useDispatch, useSelector} from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 function CounterApp() {
 
-    const count = useSelector((state)=>state.count)
+    const count = useSelector((state) => state.count)
 
     const dispatch = useDispatch()
 
-    function increment(){
-        return {type: "INCREMENT"}
+    function increment() {
+        dispatch({ type: "INCREMENT" })
     }
 
-    function decrement(){
-        return {type: "DECREMENT"}
+    function decrement() {
+        dispatch({ type: "DECREMENT" })
     }
-  return (
-    <div>
-        <button onClick={()=>dispatch(increment())}>Increment</button>
-        <h1>Count: {count}</h1>
-        <button onClick={()=>dispatch(decrement())}>Decrement</button>
-    </div>
-  )
+    return (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={increment}>Increment</button>
+            <button onClick={decrement}>Decrement</button>
+        </div>
+    )
 }
 
 export default CounterApp
